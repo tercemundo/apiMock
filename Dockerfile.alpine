@@ -1,0 +1,11 @@
+FROM python:3.8-alpine
+WORKDIR /app
+COPY . .
+RUN apk --update add gcc build-base freetype-dev libpng-dev openblas-dev
+RUN pip install -r /app/requirements.txt
+#Mostramos que estamos binndeando el 5000
+EXPOSE 5000
+
+
+CMD ["python" , "app.py" ]
+
